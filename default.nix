@@ -1,4 +1,4 @@
-{ stdenv, libbacktrace }:
+{ lib, stdenv, libbacktrace }:
 
 stdenv.mkDerivation {
   name = "libleak";
@@ -10,4 +10,8 @@ stdenv.mkDerivation {
     mkdir -p $out/lib
     cp libleak.so $out/lib
   '';
+
+  meta = {
+    platforms = lib.platforms.linux;
+  };
 }
